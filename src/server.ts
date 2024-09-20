@@ -87,20 +87,18 @@ const openConnection = async (
 };
 
 const defineErrorHandlingMiddleware = (expressApp: Application): void => {
-  expressApp.use(
-    async (error: any, req: Request, res: Response, next: NextFunction) => {
-      // Ensure next is included for Express error handlers
-      if (error && typeof error === 'object') {
-        if (error.isTrusted === undefined || error.isTrusted === null) {
-          error.isTrusted = true;
-        }
+  expressApp.use(async (error: any, req: Request, res: Response) => {
+    // Ensure next is included for Express error handlers
+    if (error && typeof error === 'object') {
+      if (error.isTrusted === undefined || error.isTrusted === null) {
+        error.isTrusted = true;
       }
-
-      // Handle error and send response
-      errorHandler.handleError(error);
-      res.status(error?.HTTPStatus || 500).end();
     }
-  );
+
+    // Handle error and send response
+    errorHandler.handleError(error);
+    res.status(error?.HTTPStatus || 500).end();
+  });
 };
 
 export { createExpressApp, startWebServer, stopWebServer };

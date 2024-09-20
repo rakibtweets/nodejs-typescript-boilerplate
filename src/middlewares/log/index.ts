@@ -37,6 +37,7 @@ const logRequest = ({ fields = [] }: LogRequestOptions = {}) => {
       logger.info(`${req.method} ${req.originalUrl}`, {
         statusCode: res.statusCode
       });
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       //@ts-ignore
       return oldEnd.apply(this, args);
     };
