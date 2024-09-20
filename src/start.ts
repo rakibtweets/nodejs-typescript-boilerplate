@@ -1,17 +1,13 @@
-import express, { Request, Response } from 'express';
+import { startWebServer } from './server';
 
-const app = express();
-const port = 3000;
+const start = async () => {
+  await startWebServer();
+};
 
-// Middleware to parse JSON bodies
-app.use(express.json());
-
-// Basic route
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, world!');
-});
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+start()
+  .then(() => {
+    console.log('Done');
+  })
+  .catch((error) => {
+    console.error(error);
+  });
