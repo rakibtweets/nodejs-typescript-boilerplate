@@ -72,8 +72,9 @@ const openConnection = async (
     logger.info(`Server is about to listen to port ${webServerPort}`);
 
     connection = expressApp.listen(webServerPort, () => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       errorHandler.listenToErrorEvents(connection);
-
       const addressInfo = connection.address();
       if (typeof addressInfo === 'string') {
         resolve({ address: addressInfo, port: webServerPort });
