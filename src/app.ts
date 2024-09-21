@@ -12,7 +12,7 @@ function defineRoutes(expressApp: Application): void {
 
   // Health check
   expressApp.get('/health', (req: Request, res: Response) => {
-    res.json({ status: 200, message: 'OK' });
+    res.send('OK');
   });
 
   // 404 handler
