@@ -1,12 +1,12 @@
 import logger from '../log/logger';
-import util, { inspect } from 'util';
+import { inspect } from 'util';
 import { AppError } from './AppError';
 import { Server } from 'http';
 
 let httpServerRef: Server | null;
 
 const errorHandler = {
-  listenToErrorEvents: (httpServer: Server): void => {
+  listenToErrorEvents: (): void => {
     process.on('uncaughtException', async (error: unknown) => {
       await errorHandler.handleError(error);
     });

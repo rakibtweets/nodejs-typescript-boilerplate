@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { Schema, ValidationError } from 'joi'; // Assuming you're using Joi for validation
+import { Schema } from 'joi'; // Assuming you're using Joi for validation
 import logger from '../../libraries/log/logger';
 
 interface ValidateRequestOptions {

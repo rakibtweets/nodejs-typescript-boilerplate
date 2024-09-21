@@ -1,5 +1,4 @@
 #!/usr/bin/env zx
-//@ts-ignore
 import { $, cd } from 'zx';
 
 // Function to create the domain structure
