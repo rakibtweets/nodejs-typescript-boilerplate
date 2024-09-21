@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon src/start.ts",
-    "create-domain": "zx src/scripts/dev/domain-generator.ts",
+    "create-domain": "ts-node scripts/dev/domain-generator.ts",
     "test": "jest",
     "lint": "eslint"
   },
